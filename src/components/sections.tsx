@@ -4,7 +4,6 @@ import { faqJsonLd } from "@/lib/seo";
 import { Accordion } from "./Accordion";
 import { JsonLd } from "./JsonLd";
 import { ArrowIcon } from "./icons";
-import { Magnetic } from "./motion/Magnetic";
 import { Reveal, RevealWords } from "./motion/Reveal";
 import { ScrollImage } from "./motion/ScrollImage";
 import styles from "./sections.module.css";
@@ -45,12 +44,10 @@ export function ContactCta() {
               <p className={styles.ctaBody}>{cta.body}</p>
             </Reveal>
             <Reveal delay={0.25}>
-              <Magnetic>
-                <Link href={cta.action.href} className="button button--light">
-                  {cta.action.label}
-                  <ArrowIcon size={18} />
-                </Link>
-              </Magnetic>
+              <Link href={cta.action.href} className="button button--light">
+                {cta.action.label}
+                <ArrowIcon size={18} />
+              </Link>
             </Reveal>
           </div>
         </div>

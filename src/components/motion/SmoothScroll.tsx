@@ -2,11 +2,17 @@
 
 import { useEffect } from "react";
 
+/** Lenis's default curve (easeOutExpo), as used by the reference site. */
+const easeOutExpo = (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
+/** Haven runs Lenis at "intensity 10", i.e. a 1 second glide per wheel input. */
+const DURATION = 1000;
+
 /**
- * Framer-style eased wheel scrolling, with no extra dependency.
- * Mouse-wheel and trackpad input is smoothed towards a target position;
- * keyboard, scrollbar, touch and anchor scrolling stay native. Turned off
- * for reduced motion, touch-only devices and pinch/ctrl zoom.
+ * Lenis-style smooth scrolling, with no extra dependency. Each wheel or
+ * trackpad input moves a target position, and the page glides from wherever
+ * it currently is to that target over 1s on an ease-out-expo curve.
+ * Keyboard, scrollbar, touch and anchor scrolling stay native. Turned off for
+ * reduced motion, touch-only devices and pinch/ctrl zoom.
  */
 export function SmoothScroll() {
   useEffect(() => {
@@ -18,10 +24,11 @@ export function SmoothScroll() {
     const previousBehavior = root.style.scrollBehavior;
     root.style.scrollBehavior = "auto";
 
+    let animated = window.scrollY;
     let target = window.scrollY;
-    let current = window.scrollY;
+    let from = animated;
+    let start = 0;
     let frame = 0;
-    const EASE = 0.1;
 
     const maxScroll = () => root.scrollHeight - window.innerHeight;
 
@@ -41,11 +48,16 @@ export function SmoothScroll() {
       return false;
     };
 
-    const tick = () => {
-      current += (target - current) * EASE;
-      if (Math.abs(target - current) < 0.5) current = target;
-      window.scrollTo({ top: current, behavior: "instant" });
-      frame = current === target ? 0 : requestAnimationFrame(tick);
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / DURATION);
+      animated = from + (target - from) * easeOutExpo(t);
+      window.scrollTo({ top: animated, behavior: "instant" });
+      if (t < 1 && Math.abs(target - animated) > 0.5) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        animated = target;
+        frame = 0;
+      }
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -55,15 +67,18 @@ export function SmoothScroll() {
       // Don't fight a locked page (e.g. open mobile menu).
       if (getComputedStyle(document.body).overflow === "hidden") return;
       e.preventDefault();
-      const delta = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
-      if (!frame) current = window.scrollY;
+      const delta =
+        e.deltaMode === 1 ? e.deltaY * 40 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
+      if (!frame) animated = target = window.scrollY;
       target = Math.max(0, Math.min(maxScroll(), target + delta));
+      from = animated;
+      start = performance.now();
       if (!frame) frame = requestAnimationFrame(tick);
     };
 
     // Keep in sync with native scrolling (keys, scrollbar, anchors, route changes).
     const onScroll = () => {
-      if (!frame) target = current = window.scrollY;
+      if (!frame) animated = target = window.scrollY;
     };
 
     window.addEventListener("wheel", onWheel, { passive: false });

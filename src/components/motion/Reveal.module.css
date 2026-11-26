@@ -1,18 +1,31 @@
-.mask {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-  /* room for descenders and italic overhang inside the mask */
-  padding: 0.06em 0.04em 0.14em;
-  margin: -0.06em -0.04em -0.14em;
+.lines {
+  display: inline;
 }
 
 .word {
   display: inline-block;
-  will-change: transform;
+  opacity: 0.001;
+  transform: translateY(14px);
+  transition:
+    opacity 0.4s cubic-bezier(0.44, 0, 0.13, 0.96),
+    transform 0.4s cubic-bezier(0.44, 0, 0.13, 0.96);
+  transition-delay: calc(var(--start, 0.1s) + var(--line, 0) * 0.11s);
+}
+
+.lines[data-inview] .word {
+  opacity: 1;
+  transform: none;
 }
 
 .fill {
   position: absolute;
   inset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

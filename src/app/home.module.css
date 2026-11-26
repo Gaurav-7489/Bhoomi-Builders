@@ -54,8 +54,11 @@
 }
 
 /* Full-bleed scroll bands */
+/* Haven: each band fills the screen (80% on phones) and pins while the next
+   section slides over it. */
 .band {
-  height: clamp(420px, 62vw, 920px);
+  height: 100vh;
+  height: 100svh;
 }
 
 @media (min-width: 761px) and (max-width: 1100px) {
@@ -102,7 +105,7 @@
     aspect-ratio: 4 / 4.2;
   }
   .band {
-    height: 68svh;
-    max-height: 520px;
+    height: 80vh;
+    height: 80svh;
   }
 }

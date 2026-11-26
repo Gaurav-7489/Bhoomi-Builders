@@ -114,7 +114,8 @@ export function Accordion({
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{
-                    height: { duration: reduce ? 0 : 0.7, ease: EASE_EXPO },
+                    // Haven FAQ spring: stiffness 500, damping 60, mass 1.
+                    height: reduce ? { duration: 0 } : { type: "spring", stiffness: 500, damping: 60, mass: 1 },
                     opacity: { duration: reduce ? 0 : 0.45, ease: "easeOut" },
                   }}
                 >

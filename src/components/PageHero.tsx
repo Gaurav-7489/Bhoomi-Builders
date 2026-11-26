@@ -42,7 +42,7 @@ export function PageHero({ title, intro, image, meta, scrollCue = false, align =
           <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className={styles.img} />
         </div>
       </motion.div>
-      <div className={styles.gradient} aria-hidden />
+      <div className={styles.veil} aria-hidden />
       <motion.div className={styles.shade} style={reduce ? { opacity: 0 } : { opacity: shade }} aria-hidden />
 
       <motion.div

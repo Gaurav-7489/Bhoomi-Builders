@@ -1,27 +1,27 @@
+/* Haven cursor: 30px box, white dot, mix-blend-mode difference. */
 .cursor {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 120;
-  pointer-events: none;
-}
-
-.bubble {
-  position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 200;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
   display: grid;
   place-items: center;
-  width: 92px;
-  height: 92px;
-  margin: -46px 0 0 -46px;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease;
+  will-change: transform;
+}
+
+.dot {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex: none;
   border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  background: #fff;
 }
 
 @media print {

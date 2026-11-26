@@ -62,7 +62,7 @@ export const viewport: Viewport = {
  * Runs before paint: the preloader plays once per browser session, and once
  * it has finished, hero titles on later pages animate without waiting for it.
  */
-const introScript = `(function(){try{var d=document.documentElement;if(sessionStorage.getItem('bhoomi-intro')){d.dataset.intro='done';return}sessionStorage.setItem('bhoomi-intro','1');setTimeout(function(){d.dataset.intro='done'},1900)}catch(e){document.documentElement.dataset.intro='done'}})();`;
+const introScript = `(function(){try{var d=document.documentElement;if(sessionStorage.getItem('bhoomi-intro')){d.dataset.intro='done';return}sessionStorage.setItem('bhoomi-intro','1');setTimeout(function(){d.dataset.intro='done'},2150)}catch(e){document.documentElement.dataset.intro='done'}})();`;
 
 const SITE_LETTERS = [...site.name, "®"];
 

@@ -2,7 +2,7 @@ import Image from "@/components/Img";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 import { ArrowIcon } from "./icons";
-import { ImageReveal, Reveal } from "./motion/Reveal";
+import { Reveal } from "./motion/Reveal";
 import styles from "./ProjectCard.module.css";
 
 export function ProjectCard({
@@ -10,16 +10,28 @@ export function ProjectCard({
   priority = false,
   sizes = "(max-width: 760px) 100vw, 50vw",
   variant = "tall",
+  index = 0,
 }: {
   project: Project;
+  /** Position in its grid; staggers the fade-in like the reference. */
+  index?: number;
   priority?: boolean;
   sizes?: string;
   variant?: "tall" | "wide";
 }) {
   return (
-    <Reveal as="article" className={`${styles.card} ${styles[variant]}`} y={0}>
+    // Haven project card: fades in on a slow spring-like curve (1.2s) once half
+    // of it is on screen, 0.1s after its neighbour.
+    <Reveal
+      as="article"
+      className={`${styles.card} ${styles[variant]}`}
+      y={0}
+      duration={1.2}
+      amount={0.5}
+      delay={0.1 + (index % 3) * 0.1}
+    >
       <Link href={`/projects/${project.slug}`} className={styles.link} data-cursor="View">
-        <ImageReveal className={`frame ${styles.frame}`}>
+        <div className={`frame ${styles.frame}`}>
           <Image
             src={project.cover.src}
             alt={project.cover.alt}
@@ -28,7 +40,7 @@ export function ProjectCard({
             priority={priority}
             className={styles.img}
           />
-        </ImageReveal>
+        </div>
         <div className={styles.meta}>
           <h3 className={styles.title}>{project.title}</h3>
           <span className={styles.cta}>
@@ -48,7 +60,7 @@ export function ProjectGrid({ projects }: { projects: Project[]; staggered?: boo
   return (
     <div className={styles.grid}>
       {projects.map((p, i) => (
-        <ProjectCard key={p.slug} project={p} priority={i < 2} />
+        <ProjectCard key={p.slug} project={p} index={i} priority={i < 2} />
       ))}
     </div>
   );
