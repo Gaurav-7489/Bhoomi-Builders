@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import Image from "@/components/Img";
 import { ImageReveal, Reveal, RevealWords } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/PageHero";
@@ -8,11 +10,13 @@ import { aboutPage, services } from "@/content/pages";
 import { site } from "@/content/site";
 import styles from "./about.module.css";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About Us",
   description:
-    "About Bhoomi Builders (VNV Bhoomi Builders LLP), a design and construction company in Thrissur, Kerala, and the partners behind it.",
-};
+    "Bhoomi Builders (VNV Bhoomi Builders LLP, LLPIN ACO-9606) is a design and construction company in Thrissur, Kerala, established in 2025 and led by three designated partners.",
+  path: "/about",
+  image: "/images/pages/about.jpg",
+});
 
 const HIGHLIGHTS = [
   {
@@ -37,6 +41,7 @@ export default function AboutPage() {
   const { hero, statement, story, storyImage, team } = aboutPage;
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "About", path: "/about" }])} />
       <PageHero
         title={hero.title}
         intro={hero.intro}

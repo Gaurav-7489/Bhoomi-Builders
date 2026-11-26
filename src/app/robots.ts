@@ -1,10 +1,32 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/seo";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+/**
+ * Search engines and AI assistants (ChatGPT, Claude, Perplexity, Gemini…) are
+ * all welcome to read the public pages, so the business can be found and
+ * quoted accurately. Only the form endpoints are off-limits.
+ */
+const aiCrawlers = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Applebot-Extended",
+  "Bingbot",
+];
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: "/api/" },
-    sitemap: `${base}/sitemap.xml`,
+    rules: [
+      { userAgent: "*", allow: "/", disallow: "/api/" },
+      { userAgent: aiCrawlers, allow: "/", disallow: "/api/" },
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }

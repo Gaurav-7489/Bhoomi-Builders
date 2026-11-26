@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { Reveal, RevealWords } from "@/components/motion/Reveal";
@@ -8,14 +10,18 @@ import { contactPage } from "@/content/pages";
 import { contact, socials } from "@/content/site";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Start a project with Bhoomi Builders — call, WhatsApp or message our team in Thrissur, Kerala.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Builders in Thrissur",
+  description:
+    "Contact Bhoomi Builders in Methala, Thrissur, Kerala. Call or WhatsApp +91 85904 50090 or email hello@bhoomi.builders to discuss your house, commercial building or renovation.",
+  path: "/contact",
+  image: "/images/pages/contact.jpg",
+});
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: "/contact" }])} />
       <PageHero
         title={contactPage.hero.title}
         intro={contactPage.hero.intro}

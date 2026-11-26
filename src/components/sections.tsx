@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { cta, faq } from "@/content/site";
+import { faqJsonLd } from "@/lib/seo";
 import { Accordion } from "./Accordion";
+import { JsonLd } from "./JsonLd";
 import { ArrowIcon } from "./icons";
 import { Magnetic } from "./motion/Magnetic";
 import { Reveal, RevealWords } from "./motion/Reveal";
@@ -11,6 +13,7 @@ import styles from "./sections.module.css";
 export function FaqSection() {
   return (
     <section className={`${styles.faq} section`} aria-label="Frequently asked questions">
+      <JsonLd data={faqJsonLd()} />
       <div className="container grid">
         <div className={styles.faqHead}>
           <Reveal y={12}>

@@ -5,8 +5,10 @@ import { Header } from "@/components/Header";
 import { CustomCursor } from "@/components/motion/CustomCursor";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/content/site";
+import { businessJsonLd, keywords, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,8 +18,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -25,10 +25,32 @@ export const metadata: Metadata = {
     template: `%s — ${site.displayName}`,
   },
   description: site.description,
+  applicationName: site.displayName,
+  keywords,
+  authors: [{ name: site.legalName }],
+  creator: site.legalName,
+  publisher: site.legalName,
+  category: "construction",
+  formatDetection: { telephone: true, email: true, address: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     type: "website",
+    url: "/",
     siteName: site.displayName,
-    images: [{ url: "/images/home/hero.jpg", width: 2000, height: 1333 }],
+    locale: "en_IN",
+    title: `${site.displayName} — ${site.descriptor} in Thrissur, Kerala`,
+    description: site.description,
+    images: [{ url: "/images/home/hero.jpg", width: 2000, height: 1333, alt: "Bhoomi Builders" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.displayName} — ${site.descriptor} in Thrissur, Kerala`,
+    description: site.description,
+    images: ["/images/home/hero.jpg"],
   },
 };
 
@@ -46,7 +68,7 @@ const SITE_LETTERS = [...site.name, "®"];
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en-IN" className={inter.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <noscript>
@@ -54,6 +76,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </noscript>
       </head>
       <body>
+        <JsonLd data={businessJsonLd()} />
         <div className="preloader" aria-hidden="true">
           <span className="preloader__word">
             {SITE_LETTERS.map((ch, i) => (

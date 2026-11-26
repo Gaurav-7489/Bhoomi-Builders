@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "@/components/Img";
 import { notFound } from "next/navigation";
 import { ImageReveal, Reveal, RevealWords } from "@/components/motion/Reveal";
@@ -24,11 +25,15 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  return {
+  return pageMetadata({
     title: project.title,
     description: project.summary,
-    openGraph: { images: [{ url: project.cover.src }] },
-  };
+    path: `/projects/${project.slug}`,
+    image: project.cover.src,
+    // Sample (placeholder) projects aren't Bhoomi Builders' own work, so keep
+    // them out of search results until real projects replace them.
+    noindex: project.sample,
+  });
 }
 
 export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {

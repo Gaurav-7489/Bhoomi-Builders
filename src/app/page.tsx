@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "@/components/Img";
 import Link from "next/link";
 import { Accordion } from "@/components/Accordion";
@@ -12,7 +13,13 @@ import { ClosingSections } from "@/components/sections";
 import { home, sampleProjectsNote, services } from "@/content/pages";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./home.module.css";
+
+export const metadata: Metadata = pageMetadata({
+  description: site.description,
+  path: "/",
+});
 
 export default function HomePage() {
   return (
