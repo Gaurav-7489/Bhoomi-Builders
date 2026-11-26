@@ -1,0 +1,35 @@
+.button {
+  position: fixed;
+  right: clamp(16px, 2vw, 28px);
+  bottom: clamp(16px, 2vw, 24px);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1f7a4d;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    transform: translateY(-2px);
+    background: #186640;
+  }
+}
+
+.button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #1f7a4d;
+}
+
+@media print {
+  .button {
+    display: none;
+  }
+}

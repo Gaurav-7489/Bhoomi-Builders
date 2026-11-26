@@ -1,0 +1,115 @@
+.wrap {
+  position: relative;
+}
+
+.form {
+  display: grid;
+  gap: 32px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.input:focus-visible {
+  border-bottom-color: var(--ink-strong);
+  box-shadow: 0 1.5px 0 0 var(--ink-strong);
+}
+
+.field[data-invalid] .input {
+  border-bottom-color: #b3261e;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 132px;
+  line-height: 1.5;
+}
+
+.error {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #b3261e;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+
+.status[data-state="error"] {
+  color: #b3261e;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.success {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+  padding: clamp(28px, 4vw, 48px);
+  background: var(--paper-2);
+}
+
+.successTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.successBody {
+  color: var(--ink-2);
+  max-width: 40ch;
+}

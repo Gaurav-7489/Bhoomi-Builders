@@ -1,0 +1,88 @@
+/* FAQ */
+.faq {
+  background: var(--night);
+  color: var(--on-night);
+}
+
+.faqHead {
+  grid-column: 1 / span 5;
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
+.faqHead :global(.label) {
+  color: var(--on-night);
+}
+
+.faqTitle {
+  max-width: 11ch;
+}
+
+.faqList {
+  grid-column: 6 / -1;
+}
+
+/* CTA */
+.cta {
+  position: relative;
+  z-index: 1;
+  background: var(--night);
+}
+
+.ctaImage {
+  min-height: 92vh;
+  min-height: 92svh;
+  display: flex;
+  color: var(--paper);
+}
+
+.ctaShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(18, 16, 15, 0.78), rgba(18, 16, 15, 0.22) 60%),
+    rgba(18, 16, 15, 0.24);
+}
+
+.ctaInner {
+  position: relative;
+  align-self: flex-end;
+  width: 100%;
+  row-gap: 32px;
+  padding-block: clamp(80px, 9vw, 140px) clamp(56px, 6vw, 88px);
+  align-items: end;
+}
+
+.ctaTitle {
+  grid-column: 1 / span 7;
+  max-width: 12ch;
+}
+
+.ctaSide {
+  grid-column: 8 / -1;
+  display: grid;
+  gap: 28px;
+  justify-items: start;
+}
+
+.ctaBody {
+  font-size: var(--fs-body-lg);
+  font-weight: 500;
+  line-height: 1.45;
+  max-width: 38ch;
+}
+
+@media (max-width: 900px) {
+  .faqHead,
+  .faqList {
+    grid-column: 1 / -1;
+  }
+  .faqHead {
+    margin-bottom: 40px;
+  }
+  .ctaTitle,
+  .ctaSide {
+    grid-column: 1 / -1;
+  }
+}

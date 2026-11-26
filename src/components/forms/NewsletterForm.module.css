@@ -1,0 +1,93 @@
+.form {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--ink);
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.row[data-invalid] {
+  border-color: #b3261e;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border: 0;
+  background: none;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--ink-2);
+}
+
+.row:focus-within {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.submit {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+  transition: transform 0.35s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .submit:hover:not([disabled]) {
+    transform: translateX(4px);
+  }
+}
+
+.submit[disabled] {
+  cursor: progress;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.status {
+  min-height: 1.5em;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.status[data-state="success"] {
+  color: #2f6b3a;
+}
+
+.status[data-state="error"] {
+  color: #b3261e;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}

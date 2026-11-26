@@ -1,0 +1,38 @@
+.head {
+  row-gap: 20px;
+  margin-bottom: clamp(44px, 5.5vw, 84px);
+  align-items: start;
+}
+
+.split .label {
+  grid-column: 1 / span 4;
+  padding-top: 0.35em;
+}
+
+.split .title {
+  grid-column: 6 / -1;
+  max-width: 18ch;
+}
+
+.center {
+  justify-items: center;
+  text-align: center;
+}
+
+.center .label,
+.center .title {
+  grid-column: 1 / -1;
+}
+
+.center .title {
+  max-width: 18ch;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 760px) {
+  .split .label,
+  .split .title {
+    grid-column: 1 / -1;
+  }
+}
