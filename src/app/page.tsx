@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import { Accordion } from "@/components/Accordion";
 import { ArrowIcon } from "@/components/icons";

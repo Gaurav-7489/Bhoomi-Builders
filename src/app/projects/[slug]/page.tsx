@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/Img";
 import { notFound } from "next/navigation";
 import { ImageReveal, Reveal, RevealWords } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/PageHero";

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/Img";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 import { ArrowIcon } from "./icons";

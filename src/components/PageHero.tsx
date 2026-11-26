@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/Img";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useId } from "react";
 import { renderEm } from "@/lib/text";
