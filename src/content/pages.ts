@@ -52,6 +52,8 @@ export const home = {
     imageLarge: { src: "/images/home/intro-large.jpg", alt: "Long living room with a clerestory window, low sofas and terracotta ottomans" },
     imageSmall: { src: "/images/home/intro-small.jpg", alt: "Mustard armchair beside a black-and-white abstract print" },
   },
+  /** Words in the scrolling band below the intro. */
+  marquee: ["House Construction", "Commercial Buildings", "Renovation", "Design & Planning"],
   bands: [
     { src: "/images/home/band-1.jpg", alt: "Open living space with floor-to-ceiling glazing and pale furniture" },
     { src: "/images/home/band-2.jpg", alt: "Glass-walled stair overlooking a swimming pool and the sea" },

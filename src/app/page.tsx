@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Accordion } from "@/components/Accordion";
 import { ArrowIcon } from "@/components/icons";
 import { ImageReveal, Reveal, RevealWords } from "@/components/motion/Reveal";
+import { Marquee } from "@/components/motion/Marquee";
 import { ScrollImage } from "@/components/motion/ScrollImage";
 import { PageHero } from "@/components/PageHero";
 import { ProjectGrid } from "@/components/ProjectCard";
@@ -65,6 +66,8 @@ export default function HomePage() {
             </Link>
           </Reveal>
         </section>
+
+        <Marquee items={home.marquee} label="What we do" />
 
         <ScrollImage src={home.bands[0].src} alt={home.bands[0].alt} className={styles.band} />
 

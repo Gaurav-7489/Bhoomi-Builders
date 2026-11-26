@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CustomCursor } from "@/components/motion/CustomCursor";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -68,6 +70,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </main>
           <Footer />
           <WhatsAppButton />
+          <SmoothScroll />
+          <CustomCursor />
         </MotionProvider>
       </body>
     </html>

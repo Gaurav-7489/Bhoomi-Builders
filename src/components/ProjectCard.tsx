@@ -18,7 +18,7 @@ export function ProjectCard({
 }) {
   return (
     <Reveal as="article" className={`${styles.card} ${styles[variant]}`} y={0}>
-      <Link href={`/projects/${project.slug}`} className={styles.link}>
+      <Link href={`/projects/${project.slug}`} className={styles.link} data-cursor="View">
         <ImageReveal className={`frame ${styles.frame}`}>
           <Image
             src={project.cover.src}
