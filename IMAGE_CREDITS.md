@@ -4,15 +4,10 @@ All photographs in `public/images/` are **placeholders** sourced from [Unsplash]
 
 Replace them with Bhoomi's own photography before launch. The testimonial avatar shows a stock model, not a real client.
 
-Not stock: the three partner portraits in `team/` (`member-1.jpg` to `member-3.jpg`) and the exterior renders `projects/residence-exterior-one-*.jpg` and `projects/residence-exterior-two-*.jpg` are Bhoomi Builders' own images, supplied by the owners.
+Not stock: the three partner portraits in `team/` (`member-1.jpg` to `member-3.jpg`) and the exterior renders `projects/residence-exterior-one-*.jpg` and `projects/residence-exterior-two-*.jpg` are Bhoomi Builders' own images, supplied by the owners. They also fill the home page hero, intro and bands (the stock home photos they replaced were removed from the site).
 | File | Unsplash source |
 | --- | --- |
-| `home/hero.jpg` | https://images.unsplash.com/photo-1600585154340-be6161a56a0c |
-| `home/intro-large.jpg` | https://images.unsplash.com/photo-1618221195710-dd6b41faaea6 |
-| `home/intro-small.jpg` | https://images.unsplash.com/photo-1586023492125-27b2c045efd7 |
 | `home/band-1.jpg` | https://images.unsplash.com/photo-1600607687939-ce8a6c25118c |
-| `home/band-2.jpg` | https://images.unsplash.com/photo-1600573472550-8090b5e0745e |
-| `home/band-3.jpg` | https://images.unsplash.com/photo-1615529182904-14819c35db37 |
 | `home/testimonial.jpg` | https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea |
 | `home/testimonial-avatar.jpg` | https://images.unsplash.com/photo-1534528741775-53994a69daeb |
 | `home/cta.jpg` | https://images.unsplash.com/photo-1600585154526-990dced4db0d |

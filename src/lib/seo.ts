@@ -43,7 +43,7 @@ export function businessJsonLd() {
         email: contact.email,
         telephone: "+918590450090",
         foundingDate: "2025-06-07",
-        image: absoluteUrl("/images/home/hero.jpg"),
+        image: absoluteUrl("/images/projects/residence-exterior-two-cover.jpg"),
         logo: absoluteUrl("/icon.svg"),
         address: {
           "@type": "PostalAddress",
@@ -118,7 +118,7 @@ export function pageMetadata({
   title,
   description,
   path,
-  image = "/images/home/hero.jpg",
+  image = "/images/projects/residence-exterior-two-cover.jpg",
   noindex = false,
 }: {
   title?: string;

@@ -39,8 +39,8 @@ export const home = {
     intro:
       "Bhoomi Builders designs and builds homes, commercial buildings and renovations, from first drawings to construction. Based in Thrissur, Kerala.",
     image: {
-      src: "/images/home/hero.jpg",
-      alt: "Modern timber and glass house glowing at dusk beneath a large tree",
+      src: "/images/projects/residence-exterior-two-cover.jpg",
+      alt: "Two-storey home with a glazed gable entrance and clay-tile roofs in warm evening light",
     },
   },
   intro: {
@@ -49,15 +49,15 @@ export const home = {
       "We set out to deliver sustainable, high-quality construction — combining thoughtful design, eco-friendly practices and careful craftsmanship, so that every project holds its value for years to come.",
     caption: "VNV Bhoomi Builders LLP · Thrissur, Kerala · Est. 2025",
     link: { label: "About us", href: "/about" },
-    imageLarge: { src: "/images/home/intro-large.jpg", alt: "Long living room with a clerestory window, low sofas and terracotta ottomans" },
-    imageSmall: { src: "/images/home/intro-small.jpg", alt: "Mustard armchair beside a black-and-white abstract print" },
+    imageLarge: { src: "/images/projects/residence-exterior-one-cover.jpg", alt: "Front elevation of a two-storey white home with a timber-lined gable, arched balcony and terracotta brick wall" },
+    imageSmall: { src: "/images/projects/residence-exterior-one-2.jpg", alt: "Close view of a home entrance with rattan chairs, timber windows and climbing plants" },
   },
   /** Words in the scrolling band below the intro. */
   marquee: ["House Construction", "Commercial Buildings", "Renovation", "Design & Planning"],
   bands: [
-    { src: "/images/home/band-1.jpg", alt: "Open living space with floor-to-ceiling glazing and pale furniture" },
-    { src: "/images/home/band-2.jpg", alt: "Glass-walled stair overlooking a swimming pool and the sea" },
-    { src: "/images/home/band-3.jpg", alt: "Sage-green living room with rattan pendant lights, framed prints and a patterned rug" },
+    { src: "/images/projects/residence-exterior-one-1.jpg", alt: "Angled view of a two-storey home showing the gabled roof, balcony rail and covered entrance" },
+    { src: "/images/projects/residence-exterior-two-1.jpg", alt: "Side view of a home with a clay-tile roof, planted roof and gravel driveway" },
+    { src: "/images/projects/residence-exterior-two-2.jpg", alt: "Wider view of a home with palms, a timber-clad upper floor and a car in the carport" },
   ],
   projects: {
     label: "Sample work",

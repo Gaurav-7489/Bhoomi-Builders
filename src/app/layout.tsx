@@ -44,13 +44,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     title: `${site.displayName} — ${site.descriptor} in Thrissur, Kerala`,
     description: site.description,
-    images: [{ url: "/images/home/hero.jpg", width: 2000, height: 1333, alt: "Bhoomi Builders" }],
+    images: [{ url: "/images/projects/residence-exterior-two-cover.jpg", width: 2000, height: 1044, alt: "Bhoomi Builders" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.displayName} — ${site.descriptor} in Thrissur, Kerala`,
     description: site.description,
-    images: ["/images/home/hero.jpg"],
+    images: ["/images/projects/residence-exterior-two-cover.jpg"],
   },
 };
 
