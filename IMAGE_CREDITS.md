@@ -44,3 +44,5 @@ Not stock: the three partner portraits in `team/` (`member-1.jpg` to `member-3.j
 | `projects/ivory-court-2.jpg` | https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da |
 | `projects/ivory-court-3.jpg` | https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e |
 | `projects/ivory-court-4.jpg` | https://images.unsplash.com/photo-1560448204-e02f11c3d0e2 |
+
+Portfolio photos supplied by the owner as Bhoomi Builders' own work (taken from the Tropical Yard portfolio PDF, "TROPICAL_YARD_PORTFOLIO_AD_2025"): `projects/portfolio-*.jpg`. The PDF's branding, text, contact details and project names were not used. Confirm with the owner that these projects are Bhoomi Builders' before launch.

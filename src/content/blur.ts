@@ -58,4 +58,9 @@ export const blurData: Record<string, string> = {
   "/images/projects/residence-exterior-two-cover.jpg": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAgAA4BaJZgC7AD1cdTwOYoSAP39M0lI0AzqGrHwpVBeKbIQlQYiEFZHjJfgHsP+/0TLxmrxvg/AgyNojlrtsAAAAA==",
   "/images/projects/residence-exterior-two-1.jpg": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAgAA4BaJZACdAEfUN3bLAD+t3WA65NibrE38gzh4tTp9aGqk3tcEutAYOL7wVli7TN3+p3BlewXV7wQIIbsoBaOgAAA",
   "/images/projects/residence-exterior-two-2.jpg": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAgAA4BaJaACdAD5gKBkTbgA/mqUa1aj0qqRuIS3ByyqIS6fzk1+E86O4CqRY7QrD6e6t8k3qct4PsQ1SnbbifCgAA==",
+  "/images/projects/portfolio-projects-hero.jpg": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAAkAA4BaJQAAXI5mxcrAAP6tLB8bOGxgpvneLGn2mmYiHNg71sxqs0ydb7KVLY5gMcyRu9WcD7cLV9yf5MQAAAA=",
+  "/images/projects/portfolio-services-hero.jpg": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAoAA4BaJQAAW6HFJBRjZAD+TTd9GJMC55B9aZql6xsKSINGjfTt/mPGtQVnT3KHa4JhRSRLzu9e06guYeELakJOPTITA1YvoaBSAAA=",
+  "/images/projects/portfolio-service-house.jpg": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAkAA4BaJQBdgCHn6eDKAAD+pqxkTy+iOtyafAzUFo7XK+aSbolqT7LgcGSggUrgTVxa0zhrTpMoc73nBaeA6+GiHG3gAAA=",
+  "/images/projects/portfolio-service-design.jpg": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAkAA4BaJZAAAtnengpPAAD9mqDk7qIQfJcXNJ7TrdqW1B4QimHLlScX+G0dcDyysdG1SxojpEet90tBYHHfFEYfNb7nDlvwAA==",
+  "/images/projects/portfolio-about-story.jpg": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAkAA4BaJQBdgCHpfRyP8AD+q+Djirz7sxM0OuYqvUb8ZjVlHtYc39UAEDgEftQkxWuGcr+OJGQc/flVcnbz0AA=",
 };

@@ -11,7 +11,7 @@ export const services = [
     slug: "house-construction",
     title: "House Construction",
     body: "New homes and villas built from the ground up, including turnkey projects that take you from approved plans to a finished house.",
-    image: { src: "/images/pages/about.jpg", alt: "Contemporary house with timber cladding and a glazed entrance" },
+    image: { src: "/images/projects/portfolio-service-house.jpg", alt: "Two-storey villa with stone cladding, timber balconies and a covered driveway" },
   },
   {
     slug: "commercial-construction",
@@ -29,7 +29,7 @@ export const services = [
     slug: "design-and-planning",
     title: "Design & Planning",
     body: "Architectural design, planning and consultancy that turn your plot and your requirements into drawings ready to build.",
-    image: { src: "/images/services/space-planning.jpg", alt: "Open-plan dining room with a timber table set beside large windows" },
+    image: { src: "/images/projects/portfolio-service-design.jpg", alt: "Modern two-storey home with a glazed facade, timber screens and a car parked under a carport" },
   },
 ];
 
@@ -79,7 +79,7 @@ export const projectsPage = {
   hero: {
     title: ["Work that", "_settles_ in"],
     intro: "Homes and spaces designed for everyday living, solid materials and good light.",
-    image: { src: "/images/projects/residence-exterior-two-2.jpg", alt: "Wider view of a home with palms, a timber-clad upper floor and a car in the carport" },
+    image: { src: "/images/projects/portfolio-projects-hero.jpg", alt: "Two-storey residence with a green facade, deep veranda and palms in a tropical garden" },
   },
 };
 
@@ -103,7 +103,7 @@ export const aboutPage = {
       image: { src: "/images/pages/about-2.jpg", alt: "Living room with a tan leather sofa, sage feature wall and glass pendant lights" },
     },
   ],
-  storyImage: { src: "/images/pages/about-3.jpg", alt: "Loft living area with exposed brick, a grey sofa and a long kitchen counter" },
+  storyImage: { src: "/images/projects/portfolio-about-story.jpg", alt: "Multi-level residence with terraced balconies, timber screens and tall palms" },
   team: {
     label: "Partners",
     title: "The people behind _Bhoomi_",
@@ -131,7 +131,7 @@ export const servicesPage = {
   hero: {
     title: ["Made with", "_care_"],
     intro: "Four ways we can help — on their own, or together as one complete project.",
-    image: { src: "/images/projects/residence-exterior-one-1.jpg", alt: "Angled view of a two-storey home showing the gabled roof, balcony rail and covered entrance" },
+    image: { src: "/images/projects/portfolio-services-hero.jpg", alt: "Entrance of a modern home with a stone-clad wall, bougainvillea and a covered porch" },
   },
 };
 
