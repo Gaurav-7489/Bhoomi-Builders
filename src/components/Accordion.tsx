@@ -48,9 +48,9 @@ export function Accordion({
             key={item.title}
             className={styles.item}
             data-open={isOpen ? "" : undefined}
-            initial={{ opacity: 0, y: 24 }}
+            initial={reduce ? false : { opacity: 1, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.9, ease: EASE_EXPO, delay: i * 0.06 }}
           >
             <Heading className={styles.heading}>
