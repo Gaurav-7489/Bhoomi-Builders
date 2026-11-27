@@ -38,7 +38,7 @@ export function Header() {
       const threshold = hero ? hero.offsetHeight - 64 : -1;
       const y = window.scrollY;
       setSolid(y > threshold);
-      if (Math.abs(y - last) > 6) {
+      if (Math.abs(y - last) > 24) {
         setTucked(y > Math.max(threshold, 0) + 240 && y > last);
         last = y;
       }
