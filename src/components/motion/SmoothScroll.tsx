@@ -65,7 +65,8 @@ export function SmoothScroll() {
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (insideScrollable(e.target, e.deltaY)) return;
       // Don't fight a locked page (e.g. open mobile menu).
-      if (getComputedStyle(document.body).overflow === "hidden") return;
+      // The menu locks <html> (and sometimes <body>); let the page stay put.
+      if (getComputedStyle(root).overflowY === "hidden" || getComputedStyle(document.body).overflowY === "hidden") return;
       e.preventDefault();
       const delta =
         e.deltaMode === 1 ? e.deltaY * 40 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;

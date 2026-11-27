@@ -17,10 +17,11 @@ type Item = {
  * Disclosure list used by the FAQ (dark) and the home services preview.
  * Each row toggles independently; the first row starts open.
  *
- * With a mouse, hovering a row also opens it (and closes the previously
- * hovered one) after a short pause, Framer-style. Clicking a hover-opened row
- * keeps it open; clicking an open row closes it. Touch and keyboard work as
- * plain click-to-toggle.
+ * With a mouse, hovering a row opens it (closing the previous one) and moving
+ * the cursor off the list closes it again, Framer-style. Hover is driven by
+ * real mouse movement only, so rows sliding under a still cursor (page scroll,
+ * or another panel opening/closing) never trigger it. Touch and keyboard work
+ * as plain click-to-toggle.
  */
 export function Accordion({
   items,
@@ -38,35 +39,60 @@ export function Accordion({
   const [open, setOpen] = useState<Set<number>>(() => new Set(defaultOpen));
   const [hovered, setHovered] = useState<number | null>(null);
   const hoverTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const lastScroll = useRef(0);
+  const lastPos = useRef({ x: -1, y: -1 });
+  // Once the mouse drives the list, hover alone decides what is open.
+  const mouseDriven = useRef(false);
   const Heading = `h${headingLevel}` as const;
 
-  useEffect(() => () => clearTimeout(hoverTimer.current), []);
+  useEffect(() => {
+    const onScroll = () => {
+      lastScroll.current = performance.now();
+      clearTimeout(hoverTimer.current);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(hoverTimer.current);
+    };
+  }, []);
 
-  const onEnter = (e: React.PointerEvent, i: number) => {
+  const onMove = (e: React.PointerEvent, i: number) => {
     if (e.pointerType !== "mouse") return;
+    // Ignore layout-shift "moves" (no motion) and anything while scrolling.
+    const moved = e.clientX !== lastPos.current.x || e.clientY !== lastPos.current.y;
+    lastPos.current = { x: e.clientX, y: e.clientY };
+    if (!moved) return;
+    if (e.timeStamp - lastScroll.current < 150) return;
+    if (!mouseDriven.current) {
+      mouseDriven.current = true;
+      setOpen(new Set()); // drop the initial/keyboard state; hover takes over
+    }
+    if (hovered === i) {
+      clearTimeout(hoverTimer.current);
+      return;
+    }
     clearTimeout(hoverTimer.current);
-    // Short hover intent so sweeping the cursor across rows doesn't flicker.
-    hoverTimer.current = setTimeout(() => setHovered(i), 140);
+    // Short hover intent so sweeping across rows doesn't flicker.
+    hoverTimer.current = setTimeout(() => setHovered(i), 90);
   };
 
-  const onLeaveList = () => {
+  const onLeaveList = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
     clearTimeout(hoverTimer.current);
     setHovered(null);
   };
 
-  const toggle = (i: number) => {
+  const toggle = (i: number, e: React.MouseEvent) => {
     clearTimeout(hoverTimer.current);
-    if (open.has(i)) {
-      setOpen((prev) => {
-        const next = new Set(prev);
-        next.delete(i);
-        return next;
-      });
-      setHovered(null);
-    } else {
-      // Pins a row that is closed or only open because of hover.
-      setOpen((prev) => new Set(prev).add(i));
-    }
+    // A real mouse click while hover is in charge shouldn't fight it.
+    if (mouseDriven.current && e.detail > 0) return;
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
   };
 
   return (
@@ -81,7 +107,7 @@ export function Accordion({
             key={item.title}
             className={styles.item}
             data-open={isOpen ? "" : undefined}
-            onPointerEnter={(e) => onEnter(e, i)}
+            onPointerMove={(e) => onMove(e, i)}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -94,7 +120,7 @@ export function Accordion({
                 className={styles.trigger}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                onClick={() => toggle(i)}
+                onClick={(e) => toggle(i, e)}
               >
                 {variant === "services" && <span className={styles.number}>{number}</span>}
                 <span className={styles.title}>{item.title}</span>
