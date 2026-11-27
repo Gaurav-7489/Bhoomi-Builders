@@ -80,7 +80,7 @@
   font-weight: 700;
   font-size: clamp(4.1rem, 21.8vw, 24rem);
   line-height: 0.85;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
   color: var(--ink);
   text-align: center;
   white-space: nowrap;
@@ -88,7 +88,7 @@
 }
 
 .wordmarkReg {
-  font-size: 0.34em;
+  font-size: 0.55em;
   font-weight: 700;
   vertical-align: top;
   margin-left: 0.04em;
