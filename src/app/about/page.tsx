@@ -32,8 +32,8 @@ const HIGHLIGHTS = [
     label: "Designated partners leading design and construction together.",
   },
   {
-    value: "01",
-    label: "Integrated team taking projects from first drawings to finished building.",
+    value: "07.06",
+    label: "Legal commencement of VNV Bhoomi Builders LLP, LLPIN ACO-9606.",
   },
 ] as const;
 

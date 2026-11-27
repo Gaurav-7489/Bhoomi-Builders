@@ -79,7 +79,7 @@ export const projectsPage = {
   hero: {
     title: ["Work that", "_settles_ in"],
     intro: "Homes and spaces designed for everyday living, solid materials and good light.",
-    image: { src: "/images/pages/projects.jpg", alt: "Sunlit living room with a grid of framed photographs above a tan leather sofa" },
+    image: { src: "/images/projects/residence-exterior-two-2.jpg", alt: "Wider view of a home with palms, a timber-clad upper floor and a car in the carport" },
   },
 };
 
@@ -131,7 +131,7 @@ export const servicesPage = {
   hero: {
     title: ["Made with", "_care_"],
     intro: "Four ways we can help — on their own, or together as one complete project.",
-    image: { src: "/images/pages/services.jpg", alt: "Sunlit living room with a rose lounge chair, green artwork and open shelving" },
+    image: { src: "/images/projects/residence-exterior-one-1.jpg", alt: "Angled view of a two-storey home showing the gabled roof, balcony rail and covered entrance" },
   },
 };
 
