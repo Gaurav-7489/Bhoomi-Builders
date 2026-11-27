@@ -17,7 +17,7 @@
   --line-night: rgba(255, 253, 245, 0.2);
 
   /* Type */
-  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, var(--font-inter), sans-serif;
   --fs-hero: clamp(2.85rem, min(7vw, 13vh), 6.25rem);
   --fs-xl: clamp(2.5rem, 6.2vw, 6.25rem);
   --fs-lg: clamp(2rem, 4.4vw, 4rem);
