@@ -39,7 +39,7 @@ export function PageHero({ title, intro, image, meta, scrollCue = false, align =
     >
       <motion.div className={styles.media} style={reduce ? undefined : { y: mediaY }}>
         <div className={styles.mediaInner}>
-          <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className={styles.img} />
+          <Image src={image.src} alt={image.alt} fill preload sizes="100vw" className={styles.img} />
         </div>
       </motion.div>
       <div className={styles.veil} aria-hidden />
