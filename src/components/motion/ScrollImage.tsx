@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "@/components/Img";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef, type ReactNode } from "react";
 import styles from "./ScrollImage.module.css";
 
@@ -36,7 +36,7 @@ export function ScrollImage({
     offset: pinned ? ["start end", "start start"] : ["start end", "end start"],
   });
   const rawScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
-  const scale = useSpring(rawScale, { stiffness: 200, damping: 60, mass: 1 });
+  const scale = rawScale;
   const y = useTransform(scrollYProgress, [0, 1], ["-9%", "9%"]);
 
   const style = reduce ? undefined : pinned ? { scale } : { y, scale: 1.2 };
@@ -44,7 +44,7 @@ export function ScrollImage({
   return (
     <div ref={ref} className={`${styles.frame} ${pinned ? "pin" : ""} ${className ?? ""}`}>
       <motion.div className={styles.media} style={style}>
-        <Image src={src} alt={alt} fill sizes={sizes} className={styles.img} />
+        <Image src={src} alt={alt} fill loading="lazy" sizes={sizes} className={styles.img} />
       </motion.div>
       {children}
     </div>
