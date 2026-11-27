@@ -2,7 +2,7 @@
 
 import Image from "@/components/Img";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { PlusIcon } from "./icons";
 import { EASE_EXPO } from "./motion/Reveal";
 import styles from "./Accordion.module.css";
@@ -17,10 +17,7 @@ type Item = {
  * Disclosure list used by the FAQ (dark) and the home services preview.
  * Each row toggles independently; the first row starts open.
  *
- * With a mouse, hovering a row also opens it (and closes the previously
- * hovered one) after a short pause, Framer-style. Clicking a hover-opened row
- * keeps it open; clicking an open row closes it. Touch and keyboard work as
- * plain click-to-toggle.
+ * Click, touch and keyboard toggle each row independently.
  */
 export function Accordion({
   items,
@@ -36,43 +33,13 @@ export function Accordion({
   const baseId = useId();
   const reduce = useReducedMotion();
   const [open, setOpen] = useState<Set<number>>(() => new Set(defaultOpen));
-  const [hovered, setHovered] = useState<number | null>(null);
-  const hoverTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const Heading = `h${headingLevel}` as const;
-
-  useEffect(() => () => clearTimeout(hoverTimer.current), []);
-
-  const onEnter = (e: React.PointerEvent, i: number) => {
-    if (e.pointerType !== "mouse") return;
-    clearTimeout(hoverTimer.current);
-    // Short hover intent so sweeping the cursor across rows doesn't flicker.
-    hoverTimer.current = setTimeout(() => setHovered(i), 140);
-  };
-
-  const onLeaveList = () => {
-    clearTimeout(hoverTimer.current);
-    setHovered(null);
-  };
-
-  const toggle = (i: number) => {
-    clearTimeout(hoverTimer.current);
-    if (open.has(i)) {
-      setOpen((prev) => {
-        const next = new Set(prev);
-        next.delete(i);
-        return next;
-      });
-      setHovered(null);
-    } else {
-      // Pins a row that is closed or only open because of hover.
-      setOpen((prev) => new Set(prev).add(i));
-    }
-  };
+  const toggle = (i: number) => setOpen(prev => { const next = new Set(prev); if (next.has(i)) next.delete(i); else next.add(i); return next; });
 
   return (
-    <ul className={`${styles.list} ${styles[variant]}`} onPointerLeave={onLeaveList}>
+    <ul className={`${styles.list} ${styles[variant]}`}>
       {items.map((item, i) => {
-        const isOpen = open.has(i) || hovered === i;
+        const isOpen = open.has(i);
         const btnId = `${baseId}-btn-${i}`;
         const panelId = `${baseId}-panel-${i}`;
         const number = String(i + 1).padStart(2, "0");
@@ -81,7 +48,6 @@ export function Accordion({
             key={item.title}
             className={styles.item}
             data-open={isOpen ? "" : undefined}
-            onPointerEnter={(e) => onEnter(e, i)}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -115,8 +81,8 @@ export function Accordion({
                   exit={{ height: 0, opacity: 0 }}
                   transition={{
                     // Haven FAQ spring: stiffness 500, damping 60, mass 1.
-                    height: reduce ? { duration: 0 } : { type: "spring", stiffness: 500, damping: 60, mass: 1 },
-                    opacity: { duration: reduce ? 0 : 0.45, ease: "easeOut" },
+                    height: reduce ? { duration: 0 } : { duration: 0.38, ease: EASE_EXPO },
+                    opacity: { duration: reduce ? 0 : 0.25, ease: "easeOut" },
                   }}
                 >
                   <PanelBody item={item} sizes="(max-width: 760px) 100vw, 40vw" />
