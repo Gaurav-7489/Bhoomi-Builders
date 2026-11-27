@@ -26,8 +26,8 @@ export function ProjectCard({
       as="article"
       className={`${styles.card} ${styles[variant]}`}
       y={0}
-      duration={1.2}
-      amount={0.5}
+      duration={0.65}
+      amount={0.1}
       delay={0.1 + (index % 3) * 0.1}
     >
       <Link href={`/projects/${project.slug}`} className={styles.link} data-cursor="View">
@@ -60,7 +60,7 @@ export function ProjectGrid({ projects }: { projects: Project[]; staggered?: boo
   return (
     <div className={styles.grid}>
       {projects.map((p, i) => (
-        <ProjectCard key={p.slug} project={p} index={i} priority={i < 2} />
+        <ProjectCard key={p.slug} project={p} index={i} priority={false} />
       ))}
     </div>
   );
