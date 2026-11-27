@@ -1,9 +1,8 @@
-import { contact, faq, site } from "@/content/site";
-import { services } from "@/content/pages";
+import { faq, site } from "@/content/site";
 import { plainText } from "@/lib/text";
 
 /** Canonical origin. Set NEXT_PUBLIC_SITE_URL=https://bhoomi.builders in production. */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://bhoomi.builders").replace(/\/$/, "");
 
 export const absoluteUrl = (path = "/") => `${siteUrl}${path === "/" ? "" : path}`;
 
@@ -11,12 +10,7 @@ export const absoluteUrl = (path = "/") => `${siteUrl}${path === "/" ? "" : path
 export const keywords = [
   "builders in Thrissur",
   "construction company Thrissur",
-  "house construction Thrissur",
-  "home builders Kerala",
-  "commercial construction Thrissur",
-  "renovation contractors Thrissur",
-  "architectural design and planning Kerala",
-  "turnkey house construction Kerala",
+  "builders Kerala",
   "Bhoomi Builders",
   "VNV Bhoomi Builders LLP",
 ];
@@ -40,40 +34,14 @@ export function businessJsonLd() {
         alternateName: "Bhoomi",
         description: site.description,
         url: siteUrl,
-        email: contact.email,
-        telephone: "+918590450090",
         foundingDate: "2025-06-07",
         image: absoluteUrl("/images/projects/residence-exterior-two-cover.jpg"),
         logo: absoluteUrl("/icon.svg"),
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Building No. 40/258/C, Karuthende Parambil, Methala",
           addressLocality: "Thrissur",
           addressRegion: "Kerala",
-          postalCode: "680664",
           addressCountry: "IN",
-        },
-        areaServed: { "@type": "State", name: "Kerala" },
-        identifier: { "@type": "PropertyValue", propertyID: "LLPIN", value: site.llpin },
-        founder: [
-          "Vishnu Kumbalath Salim",
-          "Nisanth Sadanandan",
-          "Vishnu Eranezhath Vengali Jayaprakash",
-        ].map((name) => ({ "@type": "Person", name, jobTitle: "Designated Partner" })),
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Construction services",
-          itemListElement: services.map((s) => ({
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: s.title,
-              description: s.body,
-              url: absoluteUrl(`/services#${s.slug}`),
-              provider: { "@id": businessId },
-              areaServed: { "@type": "State", name: "Kerala" },
-            },
-          })),
         },
       },
       {
