@@ -29,12 +29,12 @@ export function PageTransition({ children }: { children: ReactNode }) {
           aria-hidden
           initial={{ y: "0%" }}
           animate={{ y: "-100%" }}
-          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.05 }}
+          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1], delay: 0.05 }}
         />
       )}
       <motion.div
-        initial={play ? { opacity: 0, y: 40 } : false}
-        animate={{ opacity: 1, y: 0 }}
+        initial={play ? { opacity: 1 } : false}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
       >
         {children}
