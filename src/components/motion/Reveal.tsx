@@ -137,17 +137,17 @@ export function ImageReveal({
     <motion.div
       className={className}
       data-reveal
-      initial={reduce ? false : { clipPath: "inset(18% 0% 0% 0%)", opacity: 0.001 }}
+      initial={reduce ? false : { clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
       whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 1.2, ease: EASE_EXPO, delay }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.7, ease: EASE_EXPO, delay }}
     >
       <motion.div
         className={styles.fill}
         initial={reduce ? false : { scale: 1.12 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 1.6, ease: EASE_EXPO, delay }}
+        transition={{ duration: 0.8, ease: EASE_EXPO, delay }}
       >
         {children}
       </motion.div>
