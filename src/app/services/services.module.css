@@ -77,3 +77,18 @@
     font-size: 2.1rem;
   }
 }
+
+/* Each opaque service panel covers the previous panel in document order. */
+@media (min-width: 901px) and (min-height: 760px) and (prefers-reduced-motion: no-preference) {
+  .list { display: block; isolation: isolate; }
+  .item {
+    position: sticky;
+    top: var(--header-h);
+    background: var(--paper);
+    min-height: 68vh;
+    align-content: center;
+    margin-bottom: 12vh;
+    scroll-margin-top: var(--header-h);
+  }
+  .item:last-child { margin-bottom: 0; }
+}
