@@ -18,6 +18,7 @@ export function ScrollImage({
   mode = "scale",
   className,
   sizes = "100vw",
+  eager = false,
   children,
 }: {
   src: string;
@@ -25,6 +26,8 @@ export function ScrollImage({
   mode?: "scale" | "parallax";
   className?: string;
   sizes?: string;
+  /** Load now instead of when near the viewport. Use for bands near the top of a page. */
+  eager?: boolean;
   children?: ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,7 +47,7 @@ export function ScrollImage({
   return (
     <div ref={ref} className={`${styles.frame} ${pinned ? "pin" : ""} ${className ?? ""}`}>
       <motion.div className={styles.media} style={style}>
-        <Image src={src} alt={alt} fill sizes={sizes} className={styles.img} />
+        <Image src={src} alt={alt} fill sizes={sizes} className={styles.img} loading={eager ? "eager" : undefined} />
       </motion.div>
       {children}
     </div>

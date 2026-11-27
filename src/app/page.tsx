@@ -53,6 +53,7 @@ export default function HomePage() {
                   src={home.intro.imageSmall.src}
                   alt={home.intro.imageSmall.alt}
                   fill
+                  loading="eager"
                   sizes="(max-width: 760px) 50vw, 22vw"
                 />
               </ImageReveal>
@@ -62,6 +63,7 @@ export default function HomePage() {
                 src={home.intro.imageLarge.src}
                 alt={home.intro.imageLarge.alt}
                 fill
+                loading="eager"
                 sizes="(max-width: 760px) 100vw, 55vw"
               />
             </ImageReveal>
@@ -76,7 +78,7 @@ export default function HomePage() {
 
         <Marquee items={home.marquee} label="What we do" />
 
-        <ScrollImage src={home.bands[0].src} alt={home.bands[0].alt} className={styles.band} />
+        <ScrollImage src={home.bands[0].src} alt={home.bands[0].alt} className={styles.band} eager />
 
         {/* Featured projects */}
         <section className="section container" aria-label="Featured projects">
@@ -94,7 +96,7 @@ export default function HomePage() {
           </Reveal>
         </section>
 
-        <ScrollImage src={home.bands[1].src} alt={home.bands[1].alt} className={styles.band} />
+        <ScrollImage src={home.bands[1].src} alt={home.bands[1].alt} className={styles.band} eager />
 
         {/* Services preview */}
         <section className="section container" aria-label="Services">
@@ -110,7 +112,7 @@ export default function HomePage() {
           </Reveal>
         </section>
 
-        <ScrollImage src={home.bands[2].src} alt={home.bands[2].alt} className={styles.band} />
+        <ScrollImage src={home.bands[2].src} alt={home.bands[2].alt} className={styles.band} eager />
 
         <ClosingSections />
       </div>
