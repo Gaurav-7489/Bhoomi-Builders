@@ -6,9 +6,13 @@
  * Images live in /public/images/projects. Gallery layout: the 1st and 4th
  * images run full width, the 2nd and 3rd sit side by side.
  *
- * The four entries below are SAMPLE projects with stock photos, kept at the
+ * The first four entries are SAMPLE projects with stock photos, kept at the
  * owners' request and labelled on the site as samples. Replace them with real
  * Bhoomi Builders projects (and drop `sample: true`) before launch.
+ *
+ * Residence Exterior One and Two are Bhoomi Builders exterior design renders
+ * (not sample projects). Their location, year, size and client are still
+ * "To be confirmed" and need the owners' details before launch.
  */
 
 export type ProjectImage = { src: string; alt: string };
@@ -133,6 +137,52 @@ export const projects: Project[] = [
       { src: "/images/projects/ivory-court-2.jpg", alt: "Guest suite with blue-grey walls and a wooden headboard" },
       { src: "/images/projects/ivory-court-3.jpg", alt: "Living room with a brown sofa, glass coffee table and black-and-white artwork" },
       { src: "/images/projects/ivory-court-4.jpg", alt: "Bright lounge and dining area with large windows and neutral furniture" },
+    ],
+  },
+  {
+    slug: "residence-exterior-one",
+    title: "Residence Exterior One",
+    summary: "A two-storey home with a timber-lined gable, arched balcony and brick accents.",
+    description: [
+      "Residence Exterior One is a three-view exterior design for a two-storey home. A pitched gable with a warm timber soffit rises over a white rendered facade, with an arched balcony recess and a slim metal rail above a covered entrance.",
+      "Terracotta-coloured brick, a stone-clad wall and climbing greenery soften the planes, while timber-framed glazing and a perforated brick screen tie the facade together.",
+    ],
+    year: "To be confirmed",
+    status: "In progress",
+    location: "To be confirmed",
+    size: "To be confirmed",
+    client: "To be confirmed",
+    sector: "Residential",
+    cover: {
+      src: "/images/projects/residence-exterior-one-cover.jpg",
+      alt: "Front elevation of a two-storey white home with a timber-lined gable, arched balcony and terracotta brick wall",
+    },
+    gallery: [
+      { src: "/images/projects/residence-exterior-one-1.jpg", alt: "Angled view of the home showing the gabled roof, balcony rail and covered entrance" },
+      { src: "/images/projects/residence-exterior-one-2.jpg", alt: "Close view of the entrance with rattan chairs, timber windows and climbing plants" },
+    ],
+  },
+  {
+    slug: "residence-exterior-two",
+    title: "Residence Exterior Two",
+    summary: "A glazed gable entrance, clay-tile roofs and a stone-clad carport.",
+    description: [
+      "Residence Exterior Two is a three-view exterior design for a two-storey home with a glazed gable entrance under a clay-tile roof. A planted roof, a rooftop balcony and a perforated screen add detail to the upper floor.",
+      "A covered carport with a stone-clad side wall and a timber front door complete the design, set among tropical planting with a gravel drive and stepping-stone path.",
+    ],
+    year: "To be confirmed",
+    status: "In progress",
+    location: "To be confirmed",
+    size: "To be confirmed",
+    client: "To be confirmed",
+    sector: "Residential",
+    cover: {
+      src: "/images/projects/residence-exterior-two-cover.jpg",
+      alt: "Front three-quarter view of a two-storey home with a glazed gable entrance and a covered carport with a stone-clad wall",
+    },
+    gallery: [
+      { src: "/images/projects/residence-exterior-two-1.jpg", alt: "Side view of the home with a clay-tile roof, planted roof and gravel driveway" },
+      { src: "/images/projects/residence-exterior-two-2.jpg", alt: "Wider view of the home with palms, a timber-clad upper floor and a parked car in the carport" },
     ],
   },
 ];

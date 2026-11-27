@@ -2,8 +2,9 @@
 
 All photographs in `public/images/` are **placeholders** sourced from [Unsplash](https://unsplash.com) and used under the [Unsplash License](https://unsplash.com/license) (free for commercial use, no attribution required — listed here for traceability).
 
-Replace them with Bhoomi's own photography before launch. Team portraits and the testimonial avatar show stock models, not real staff or clients.
+Replace them with Bhoomi's own photography before launch. The testimonial avatar shows a stock model, not a real client.
 
+Not stock: the three partner portraits in `team/` (`member-1.jpg` to `member-3.jpg`) and the exterior renders `projects/residence-exterior-one-*.jpg` and `projects/residence-exterior-two-*.jpg` are Bhoomi Builders' own images, supplied by the owners.
 | File | Unsplash source |
 | --- | --- |
 | `home/hero.jpg` | https://images.unsplash.com/photo-1600585154340-be6161a56a0c |
@@ -48,9 +49,3 @@ Replace them with Bhoomi's own photography before launch. Team portraits and the
 | `projects/ivory-court-2.jpg` | https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da |
 | `projects/ivory-court-3.jpg` | https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e |
 | `projects/ivory-court-4.jpg` | https://images.unsplash.com/photo-1560448204-e02f11c3d0e2 |
-| `team/member-1.jpg` | https://images.unsplash.com/photo-1531123897727-8f129e1688ce |
-| `team/member-2.jpg` | https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d |
-| `team/member-3.jpg` | https://images.unsplash.com/photo-1438761681033-6461ffad8d80 |
-| `team/member-4.jpg` | https://images.unsplash.com/photo-1500648767791-00dcc994a43e |
-| `team/member-5.jpg` | https://images.unsplash.com/photo-1544005313-94ddf0286df2 |
-| `team/member-6.jpg` | https://images.unsplash.com/photo-1472099645785-5658abf4ff4e |

@@ -84,7 +84,7 @@
 
 .member {
   display: grid;
-  align-content: space-between;
+  align-content: start;
   gap: 12px;
   padding: clamp(24px, 2.5vw, 32px);
   border-top: 2px solid var(--ink);
@@ -98,6 +98,12 @@
   letter-spacing: 0.04em;
   color: var(--ink-2);
   margin-bottom: clamp(16px, 2vw, 28px);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin-bottom: clamp(8px, 1vw, 12px);
 }
 
 .name {

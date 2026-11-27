@@ -95,15 +95,23 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         </section>
 
         <section className={`${styles.gallery} container`} aria-label="Photo gallery">
-          {[first, [second, third], fourth].map((block, i) =>
-            Array.isArray(block) ? (
+          {/* Short galleries (fewer than four images) fall back to full-width frames
+              instead of leaving a lone half-width image beside an empty slot. */}
+          {[first, [second, third].filter(Boolean), fourth].map((block, i) =>
+            Array.isArray(block) && block.length === 2 ? (
               <div key={i} className={styles.pair}>
-                {block.filter(Boolean).map((img, j) => (
+                {block.map((img, j) => (
                   <ImageReveal key={img.src} className={`frame ${styles.tall}`} delay={j * 0.08}>
                     <Image src={img.src} alt={img.alt} fill sizes="(max-width: 760px) 100vw, 50vw" />
                   </ImageReveal>
                 ))}
               </div>
+            ) : Array.isArray(block) ? (
+              block.map((img) => (
+                <ImageReveal key={img.src} className={`frame ${styles.wide}`}>
+                  <Image src={img.src} alt={img.alt} fill sizes="100vw" />
+                </ImageReveal>
+              ))
             ) : block ? (
               <ImageReveal key={block.src} className={`frame ${styles.wide}`}>
                 <Image src={block.src} alt={block.alt} fill sizes="100vw" />

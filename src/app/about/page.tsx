@@ -91,6 +91,11 @@ export default function AboutPage() {
                 <span className={styles.memberIndex} aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
+                {m.image && (
+                  <div className={`frame ${styles.photo}`}>
+                    <Image src={m.image.src} alt={m.image.alt} fill sizes="(max-width: 900px) 100vw, 33vw" />
+                  </div>
+                )}
                 <h3 className={styles.name}>{m.name}</h3>
                 <p className={styles.role}>{m.role}</p>
               </Reveal>

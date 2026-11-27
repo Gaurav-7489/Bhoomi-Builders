@@ -108,9 +108,21 @@ export const aboutPage = {
     label: "Partners",
     title: "The people behind _Bhoomi_",
     members: [
-      { name: "Vishnu Kumbalath Salim", role: "Designated Partner" },
-      { name: "Nisanth Sadanandan", role: "Designated Partner" },
-      { name: "Vishnu Eranezhath Vengali Jayaprakash", role: "Designated Partner" },
+      {
+        name: "Vishnu Kumbalath Salim",
+        role: "Designated Partner",
+        image: { src: "/images/team/member-1.jpg", alt: "Portrait of Vishnu Kumbalath Salim, smiling, in sunglasses and a navy blazer" },
+      },
+      {
+        name: "Nisanth Sadanandan",
+        role: "Designated Partner",
+        image: { src: "/images/team/member-2.jpg", alt: "Portrait of Nisanth Sadanandan, smiling, in sunglasses and a navy blazer" },
+      },
+      {
+        name: "Vishnu Eranezhath Vengali Jayaprakash",
+        role: "Designated Partner",
+        image: { src: "/images/team/member-3.jpg", alt: "Portrait of Vishnu Eranezhath Vengali Jayaprakash in sunglasses and a navy blazer" },
+      },
     ],
   },
 };
