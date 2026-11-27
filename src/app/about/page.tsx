@@ -4,7 +4,6 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import Image from "@/components/Img";
 import { ImageReveal, Reveal, RevealWords } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/PageHero";
-import { SectionHead } from "@/components/SectionHead";
 import { ClosingSections } from "@/components/sections";
 import { aboutPage, services } from "@/content/pages";
 import { site } from "@/content/site";
@@ -28,17 +27,13 @@ const HIGHLIGHTS = [
     label: "Core disciplines across homes, commercial buildings, renovations, and planning.",
   },
   {
-    value: String(aboutPage.team.members.length).padStart(2, "0"),
-    label: "Designated partners leading design and construction together.",
-  },
-  {
     value: "07.06",
     label: "Legal commencement of VNV Bhoomi Builders LLP, LLPIN ACO-9606.",
   },
 ] as const;
 
 export default function AboutPage() {
-  const { hero, statement, story, storyImage, team } = aboutPage;
+  const { hero, statement, story, storyImage } = aboutPage;
   return (
     <>
       <JsonLd data={breadcrumbJsonLd([{ name: "About", path: "/about" }])} />
@@ -81,26 +76,6 @@ export default function AboutPage() {
           <ImageReveal className={`frame ${styles.storyWide}`}>
             <Image src={storyImage.src} alt={storyImage.alt} fill sizes="100vw" />
           </ImageReveal>
-        </section>
-
-        <section className="section container" aria-label="Team">
-          <SectionHead label={team.label} title={team.title} layout="center" />
-          <ul className={styles.team}>
-            {team.members.map((m, i) => (
-              <Reveal as="li" key={m.name} className={styles.member} delay={(i % 3) * 0.08}>
-                <span className={styles.memberIndex} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                {m.image && (
-                  <div className={`frame ${styles.photo}`}>
-                    <Image src={m.image.src} alt={m.image.alt} fill sizes="(max-width: 900px) 100vw, 33vw" />
-                  </div>
-                )}
-                <h3 className={styles.name}>{m.name}</h3>
-                <p className={styles.role}>{m.role}</p>
-              </Reveal>
-            ))}
-          </ul>
         </section>
 
         <ClosingSections />
